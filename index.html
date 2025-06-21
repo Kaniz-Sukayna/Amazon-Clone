@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Clone</title>
+  <link rel="icon" href="https://www.amazon.com/favicon.ico"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <style>
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f3f6;
+    }
+
+    .header, .navbar, .footer {
+      background-color: #232f3e;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 90px;
+    }
+
+    .categories, .search-bar, .signin, .cart, nav a {
+      margin: 0.3rem;
+    }
+
+    .search-bar {
+      position: relative;
+      flex-grow: 1;
+      max-width: 400px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.6rem 2.5rem 0.6rem 0.9rem;
+      border-radius: 30px;
+      border: 2px solid #ff9900;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      right: 15px;
+      top: 40%;
+      transform: translateY(-50%);
+      color: #ff9900;
+      font-size: 1.1rem;
+    }
+
+    .cart i {
+      margin-right: 6px;
+      font-size: 1.1rem;
+    }
+
+    .signin, .cart {
+      background-color: #ff9900;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .signin:hover, .cart:hover {
+      background-color: #e68a00;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ff9900;
+    }
+
+    .main {
+      padding: 1rem;
+    }
+
+    .banner {
+      background-image: url('https://marketplace.canva.com/EAGY0W5nePg/1/0/1600w/canva-cream-and-brown-modern-fashion-store-banner-ztKoDyhSGqk.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 300px;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+    }
+
+    .categories-grid, .product-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .categories-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .category {
+      background: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+      font-weight: bold;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      background-color: #fffaef;
+    }
+
+    .product-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      background-color: #fff8f0;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .stars {
+      color: #f0c14b;
+      font-size: 1rem;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background-color: #131a22;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+      color: #ff9900;
+    }
+
+    @media (max-width: 600px) {
+      .header, .navbar, .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+  <header class="header">
+    <a href="index.html" class="logo">
+      <img src="amazon1.png" alt="Amazon Logo">
+    </a>
+
+    <select class="categories">
+      <option>All</option>
+      <option>Books</option>
+      <option>Electronics</option>
+    </select>
+
+    <div class="search-bar">
+      <input type="text" class="search" placeholder="Search" />
+      <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <button class="signin" onclick="location.href='signin.html'">Sign In</button>
+
+    <button class="cart" onclick="location.href='cart.html'">
+      <i class="fas fa-shopping-cart"></i> Cart
+    </button>
+  </header>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#">Today's Deals</a>
+    <a href="#">Electronics</a>
+    <a href="#">Books</a>
+    <a href="orders.html">Orders</a>
+  </nav>
+
+  <main class="main">
+    <div class="banner"></div>
+
+    <section class="categories-section">
+      <h2>Shop by Category</h2>
+      <div class="categories-grid">
+        <div class="category">Electronics</div>
+        <a href="clothes.html" class="category">Clothing</a>
+        <div class="category">Home</div>
+      </div>
+    </section>
+
+    <section class="products">
+      <h2>Top Picks</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/speaker/party-speaker/s/e/7/ocn-405a-3539-tg113-super-bass-bluetooth-wireless-portable-original-imaghe3rz4cunkxb.jpeg?q=90&crop=false" alt="Product 1" />
+          <h3>Bluetooth Speaker</h3>
+          <p>$29.99</p>
+          <p class="stars">★★★★☆</p>
+        </div>
+        <div class="product-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PkfyBrt6PMd8z9az50z3eulFlq2j9CKyvg&s" alt="Product 2" />
+          <h3>Smart Watch</h3>
+          <p>$49.99</p>
+          <p class="stars">★★★★★</p>
+        </div>
+        <div class="product-card">
+          <img src="https://png.pngtree.com/png-vector/20250321/ourmid/pngtree-wireless-headphone-png-image_15830312.png" alt="Product 3" />
+          <h3>Wireless Headphones</h3>
+          <p>$59.99</p>
+          <p class="stars">★★★★☆</p>
+        </div>
+        <div class="product-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhzrLNfk2N0HhGRF3neKTJSPV6hFrKu5XskA&s" alt="Product 4" />
+          <h3>HD Monitor</h3>
+          <p>$109.99</p>
+          <p class="stars">★★★☆☆</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#">About</a>
+    <a href="#">Careers</a>
+    <a href="#">Help</a>
+    <a href="#">Facebook</a>
+  </footer>
+
+</body>
+</html>

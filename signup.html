@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amazon Sign-Up</title>
+  <link rel="icon" href="https://www.amazon.com/favicon.ico"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f6f6f6;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 25px;
+      width: 110px;
+    }
+
+    .signup-box {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .signup-box h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #febd69;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      color: #0066c0;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    button[type="submit"] {
+      background-color: #f0c14b;
+      border: none;
+      padding: 11px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #e2b33c;
+    }
+
+    .signin-link {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .signin-link a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+
+    .signin-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #0066c0;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo"/>
+    <div class="signup-box">
+      <h1>Create account</h1>
+      <form id="signupForm">
+        <label for="fullname">Your name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="First and last name" required />
+
+        <label for="email">Mobile number or email</label>
+        <input type="text" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="At least 6 characters" required />
+          <button type="button" class="toggle-password" onclick="togglePassword('password', this)">Show</button>
+        </div>
+
+        <label for="confirm-password">Re-enter password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" name="confirm-password" required />
+          <button type="button" class="toggle-password" onclick="togglePassword('confirm-password', this)">Show</button>
+        </div>
+
+        <div class="error" id="errorMsg"></div>
+        <button type="submit">Create your Amazon account</button>
+      </form>
+
+      <div class="signin-link">
+        Already have an account? <a href="signin.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Conditions of Use</a>
+      <a href="#">Privacy Notice</a>
+      <a href="#">Help</a>
+    </div>
+    <p>&copy;  Amazon Clone — Kaniz Sukayna</p>
+  </footer>
+
+  <script>
+    function togglePassword(fieldId, btn) {
+      const input = document.getElementById(fieldId);
+      if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Hide";
+      } else {
+        input.type = "password";
+        btn.textContent = "Show";
+      }
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const error = document.getElementById('errorMsg');
+
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      const phonePattern = /^[0-9]{10,15}$/;
+
+      if (!name || !email || !password || !confirmPassword) {
+        error.textContent = "All fields are required.";
+      } else if (!emailPattern.test(email) && !phonePattern.test(email)) {
+        error.textContent = "Enter a valid email or phone number.";
+      } else if (password.length < 6) {
+        error.textContent = "Password must be at least 6 characters.";
+      } else if (password !== confirmPassword) {
+        error.textContent = "Passwords do not match.";
+      } else {
+        error.textContent = "";
+        alert("Account created successfully! (demo only)");
+        // Optionally reset the form
+        document.getElementById('signupForm').reset();
+      }
+    });
+  </script>
+</body>
+</html>

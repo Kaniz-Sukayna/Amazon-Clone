@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Amazon Clone</title>
+  <link rel="icon" href="https://www.amazon.com/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    .header {
+      background-color: #232f3e;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+  .logo img {
+  height: 80px;
+}
+
+
+
+    .home-btn {
+      background-color: #febd69;
+      border: none;
+      padding: 10px 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .home-btn:hover {
+      background-color: #f3a847;
+    }
+
+    .main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #232f3e;
+    }
+
+    .product-card {
+      background-color: #fefefe;
+      border: 2px solid #eee;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card h3 {
+      color: #007185;
+      margin-bottom: 5px;
+    }
+
+    .subtotal {
+      text-align: right;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #0f1111;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #ffa41c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background-color: #cc8500;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+ <div class="logo">
+  <img src="amazon1.png" alt="Amazon Logo">
+</div>
+    <button class="home-btn" onclick="location.href='index.html'">🏠 Home</button>
+  </header>
+
+  <main class="main">
+    <h2>Your Cart 🛒</h2>
+
+    <div class="product-card">
+      <div>
+        <h3>✨ Product 1</h3>
+        <p>Quantity: 1</p>
+        <p>Price: <strong>$19.99</strong></p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div>
+        <h3>🌈 Product 2</h3>
+        <p>Quantity: 2</p>
+        <p>Price: <strong>$29.99</strong></p>
+      </div>
+    </div>
+
+    <div class="subtotal">
+      <p><strong>Subtotal:</strong> $79.97</p>
+    </div>
+
+    <button class="checkout-btn">Proceed to Checkout 💳</button>
+  </main>
+</body>
+</html>
